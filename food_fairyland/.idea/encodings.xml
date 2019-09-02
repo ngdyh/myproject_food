@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="Encoding">
+    <file url="file://$PROJECT_DIR$/apps/accounts/forms.py" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/static/css/uc/amazeui.cropper.css" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/static/css/uc/amazeui.min.css" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/static/css/uc/bootstrap.min.css" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/static/css/uc/custom_up_img.css" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/static/css/uc/font-awesome.css" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/static/css/uc/owl.carousel.css" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/static/css/uc/style-responsive.css" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/static/css/uc/style.css" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/static/img/uc/404_icon.png" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/static/img/uc/500_icon.png" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/static/img/uc/arrow-up.png" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/static/img/uc/chart-texture.jpg" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/static/img/uc/check-off.png" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/static/img/uc/check-on.png" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/static/img/uc/customSelect-arrow.gif" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/static/img/uc/left-arrow.png" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/static/img/uc/mask.png" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/static/img/uc/radio-off.png" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/static/img/uc/radio-on.png" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/static/img/uc/right-arrow.png" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/static/img/uc/search-icon.jpg" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/static/js/uc/amazeui.min.js" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/static/js/uc/assets" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/static/js/uc/avator/amazeui.min.js" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/static/js/uc/avator/cropper.min.js" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/static/js/uc/avator/custom_up_img.js" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/static/js/uc/bootstrap.min.js" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/static/js/uc/common-scripts.js" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/static/js/uc/cropper.min.js" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/static/js/uc/custom.js" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/static/js/uc/custom_up_img.js" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/static/js/uc/jquery.js" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/static/js/uc/jquery.knob.js" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/static/js/uc/jquery.nicescroll.js" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/static/js/uc/jquery.scrollTo.min.js" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/static/js/uc/owl.carousel.js" charset="GBK" />
+  </component>
+</project>

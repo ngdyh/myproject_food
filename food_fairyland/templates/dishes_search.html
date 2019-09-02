@@ -1,0 +1,83 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+
+{% block content %}
+
+<div class="search_div">
+    <div class="search_contain">
+
+            <div class="container search_head">
+                    <!-- Section Header -->
+                    <div class="col-md-12 col-sm-12 col-xs-12 section-header">
+                        <h2><span class="highlight-text">{{ country }}菜品</span></h2>
+                    </div>
+                    <!-- Section Header End -->
+            </div>
+            <div class="filter-wrap">
+                <ul class="search_ul">
+                    <li class="search_li search_active" style="">
+                        <a href="#">全部分类</a>
+                    </li>
+                    <li class="search_li">
+                        <a href="#">正餐主食</a>
+                    </li>
+                    <li class="search_li">
+                        <a href="#">甜品小吃</a>
+                    </li>
+                    <li class="search_li">
+                        <a href="#">时尚饮品</a>
+                    </li>
+                    <li class="search_li">
+                        <a href="#">鲜汤粥类</a>
+                    </li>
+                    <li class="search_li">
+                        <a href="#">秘制调料</a>
+                    </li>
+                </ul>
+                <ul class="search_ul">
+                    <li class="search_li search_active" style="">
+                        <a href="#">全部地区</a>
+                    </li>
+                    <li class="search_li">
+                        <a href="#">鲁菜</a>
+                    </li>
+                    <li class="search_li">
+                        <a href="#">湘菜</a>
+                    </li>
+                    <li class="search_li">
+                        <a href="#">未分类</a>
+                    </li>
+                </ul>
+                <ul class="search_ul">
+                    <li class="search_li search_active" style="">
+                        <a href="#">全部时段</a>
+                    </li>
+                    <li class="search_li">
+                        <a href="#">早餐</a>
+                    </li>
+                    <li class="search_li">
+                        <a href="#">午餐</a>
+                    </li>
+                    <li class="search_li">
+                        <a href="#">下午茶</a>
+                    </li>
+                    <li class="search_li">
+                        <a href="#">晚餐</a>
+                    </li>
+                </ul>
+            </div>
+            {% for item in dish %}
+            <div class="col-md-3 col-sm-3 col-xs-12 " style="padding: 0 10px">
+                <div class="service-box" >
+                    <img src="{% static 'img/search_box.jpg' %}" style="height: 113px;width: 200px">
+                    <div class="icon">
+                        <h3 class="box-text">{{ item.name }}</h3>
+                    </div>
+                    <p></p>
+                </div>
+            </div>
+            {% endfor %}
+    </div>
+</div>
+
+{% endblock %}
