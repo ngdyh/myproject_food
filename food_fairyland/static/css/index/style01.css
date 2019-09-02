@@ -1,0 +1,302 @@
+
+h1,h2,h3,h4,h5,h6{
+	margin:0;
+	font-family: 'Stint Ultra Condensed', cursive;
+}
+p{
+	margin:0;
+}
+.logo h1 a {
+    display: block;
+    font-size: 2.5em;
+    color: #fff;
+    text-decoration: none;
+    letter-spacing: 2px;
+}
+/*--//banner--*/
+/*--welcome--*/
+.welcome,.reservation,.about,.news,.codes,.blog,.single,.gallery,.contact{
+	padding:7em 0;
+}
+h3.title {
+    font-size: 4em;
+    text-align: center;
+    color: #000;
+	margin-bottom: 1.2em;
+}
+p {
+    font-size: 1em;
+    color: #999;
+    line-height: 1.8em;
+    margin-top: 0.5em;
+    font-family: 'Roboto', sans-serif;
+}
+
+.welcome h4 {
+    font-size: 1.8em;
+    color: #000;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+.welcome span.glyphicon {
+    font-size: 2em;
+    color: #FF7F50;
+}
+
+.welcome span.glyphicon.glyphicon-list-alt {
+    color: #5F9EA0;
+}
+
+.welcome span.glyphicon.glyphicon-signal {
+    color: #9370DB;
+}
+.wtext-left {
+    text-align: center;
+    padding-top: 0.5em;
+}
+
+.welcome-left {
+    background: no-repeat 0px 0px;
+    min-height: 414px;
+    background-size: cover;
+    padding: 0;
+}
+.welcome-text:nth-child(2) {
+    margin: 2em 0;
+}
+/*--progress-bars--*/
+.welcome-bars {
+    margin: 1em 4em;
+    position: relative;
+    padding-top: 1.5em;
+}
+.welcome .progress {
+    height: 3px;
+    background: #E6E6E6;
+}
+.welcome .progress-bar {
+  background-color: #FF7F50;
+  line-height: 15px;
+}
+.welcome-bars label {
+    left: 56%;
+    position: absolute;
+    top: -18px;
+    background: #FF7F50;
+    padding: 5px 10px;
+    color: #fff;
+    font-size: 1em;
+    font-weight: 400;
+}
+.welcome-bars label:before {
+    width: 0;
+    height: 0;
+    position: absolute;
+    content: '';
+    bottom: -5px;
+    left: 0;
+    right: 0;
+    margin: auto;
+    display: block;
+    border-style: solid;
+    border-width: 5px 5px 0 5px;
+    border-color: #FF7F50 transparent transparent transparent;
+}
+.welcome-bars label.bar2 {
+    left: 78%;
+}
+.welcome-bars label.bar3 {
+    left: 41%;
+}
+/*--//welcome--*/
+/*--menu-form--*/
+.menu-form h3.title {
+    color: #fff;
+    text-align: right;
+    margin-right: -1em;
+}
+.book-info h5 span.glyphicon {
+    font-size: 0.8em;
+    vertical-align: middle;
+}
+.footer ul li i.glyphicon {
+    font-size: 1.1em;
+    color: #fff;
+    margin-right: 0.8em;
+    vertical-align: middle;
+}
+
+@media (max-width:640px){
+	h1, .h1, h2, .h2, h3, .h3 {
+		margin-top: 0px;
+		margin-bottom: 0px;
+	}
+
+	.progress {
+		height: 10px;
+		margin-bottom: 10px;
+	}
+.welcome, .reservation, .about, .news, .codes, .blog, .single, .gallery, .contact {
+    padding: 6em 0;
+}
+h3.title {
+    margin-bottom: 1em;
+}
+
+.welcome-left {
+    min-height: 347px;
+}
+}
+@media(max-width:991px){
+
+.welcome, .reservation, .about, .news, .codes, .blog, .single, .gallery, .contact {
+    padding: 5em 0;
+}
+.welcome-left {
+    float: left;
+    width: 45%;
+    min-height: 355px;
+}
+.welcome-right {
+    float: right;
+    width: 55%;
+    padding-right: 0;
+}
+.wtext-left {
+    float: left;
+    width: 9%;
+    padding: 0.5em 0 0;
+}
+.wtext-right {
+    float: right;
+    width: 87%;
+    padding: 0;
+}
+.welcome-bars label {
+    left: 53%;
+    top: -14px;
+    font-size: 0.9em;
+}
+.welcome-bars {
+    margin: 1em 2em;
+}
+.welcome h4 {
+    font-size: 1.6em;
+}
+h3.title {
+    margin-bottom: 0.7em;
+}
+.welcome, .reservation, .about, .news, .codes, .blog, .single, .gallery, .contact {
+    padding: 4em 0;
+}
+}
+@media(max-width:768px){
+
+.welcome h4 {
+    font-size: 1.5em;
+}
+p {
+    font-size: 0.9em;
+}
+.welcome-bars label {
+    left: 55%;
+    top: -8px;
+    font-size: 0.8em;
+    padding: 3px 6px;
+}
+.welcome-bars {
+    margin: 0.5em 0;
+}
+.welcome-text:nth-child(2) {
+    margin: 1em 0;
+}
+h3.title {
+    margin-bottom: 0.8em;
+    font-size: 3.5em;
+}
+
+}
+@media(max-width:700px){
+
+.welcome-left {
+    min-height: 305px;
+}
+
+h3.title {
+    margin-bottom: 0.6em;
+}
+
+
+}
+@media(max-width:480px){
+
+h3.title {
+    font-size: 3em;
+}
+.welcome, .reservation, .about, .news, .codes, .blog, .single, .gallery, .contact {
+    padding: 3em 0;
+}
+.welcome-left {
+    float: none;
+    width: 61%;
+    min-height: 300px;
+}
+.welcome-right {
+    float: none;
+    width: 100%;
+    padding: 0;
+    margin-top: 1.5em;
+}
+
+}
+@media(max-width:414px) {
+
+
+    .welcome, .reservation, .about, .news, .codes, .blog, .single, .gallery, .contact {
+        padding: 2em 0;
+    }
+
+
+    .welcome-left {
+        width: 75%;
+    }
+
+    .menu-form h3.title {
+        text-align: right;
+        margin-right: 1em;
+    }
+
+
+    .welcome-left {
+        width: 70%;
+        min-height: 250px;
+    }
+
+
+    .welcome-bars {
+        margin: 0 0 1.5em;
+    }
+
+    h3.title {
+        font-size: 2.8em;
+    }
+}
+@media(max-width:320px){
+
+.welcome-left {
+    width: 82%;
+}
+.welcome-bars {
+    padding-top: 1.8em;
+}
+.welcome-bars label {
+    top: -3px;
+}
+
+h3.title {
+    margin-bottom: 0.4em;
+}
+}
+
+/*--//responsive-design---*/
