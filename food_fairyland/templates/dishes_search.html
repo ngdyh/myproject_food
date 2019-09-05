@@ -1,0 +1,190 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+
+{% block title %}搜索{% endblock %}
+{% block style2 %}{% endblock %}
+{% block content %}
+
+<div class="search_div">
+    <div class="search_contain">
+
+            <div class="container search_head">
+                    <!-- Section Header -->
+                    <div class="col-md-12 col-sm-12 col-xs-12 section-header">
+                        <h2><span class="highlight-text">{{ country }}菜品</span></h2>
+                    </div>
+                    <!-- Section Header End -->
+            </div>
+            <div class="filter-wrap">
+                {% if country == "国内" %}
+                    <ul id="category" class="search_ul">
+                        <li class="search_li" >
+                            <a href="javascript:;" data-value="0">全部分类</a>
+                        </li>
+                        <li class="search_li">
+                            <a href="javascript:;" data-value="1">正餐主食</a>
+                        </li>
+                        <li class="search_li">
+                            <a href="javascript:;" data-value="2">甜品小吃</a>
+                        </li>
+                        <li class="search_li">
+                            <a href="javascript:;" data-value="3">时尚饮品</a>
+                        </li>
+                        <li class="search_li">
+                            <a href="javascript:;" data-value="4">鲜汤粥类</a>
+                        </li>
+                        <li class="search_li">
+                            <a href="javascript:;" data-value="5">秘制调料</a>
+                        </li>
+                    </ul>
+                    <ul id="district" class="search_ul">
+                        <li class="search_li search_active">
+                            <a href="javascript:;" data-value="0">全部地区</a>
+                        </li>
+                        <li class="search_li">
+                            <a href="javascript:;" data-value="1">鲁菜</a>
+                        </li>
+                        <li class="search_li">
+                            <a href="javascript:;" data-value="2">湘菜</a>
+                        </li>
+                        <li class="search_li">
+                            <a href="javascript:;" data-value="3">未分类</a>
+                        </li>
+                    </ul>
+                    <ul id="meal_time" class="search_ul">
+                    <li class="search_li search_active" >
+                        <a href="javascript:;" data-value="0">全部时段</a>
+                    </li>
+                    <li class="search_li">
+                        <a href="javascript:;" data-value="1">早餐</a>
+                    </li>
+                    <li class="search_li">
+                        <a href="javascript:;" data-value="2">午餐</a>
+                    </li>
+                    <li class="search_li">
+                        <a href="javascript:;" data-value="3">下午茶</a>
+                    </li>
+                    <li class="search_li">
+                        <a href="javascript:;" data-value="4">晚餐</a>
+                    </li>
+                </ul>
+                {% elif country == "国外" %}
+                    <ul id="category" class="search_ul">
+                        <li class="search_li" >
+                            <a href="javascript:;" data-value="0">全部分类</a>
+                        </li>
+                        <li class="search_li">
+                            <a href="javascript:;" data-value="1">正餐主食</a>
+                        </li>
+                        <li class="search_li">
+                            <a href="javascript:;" data-value="2">甜品小吃</a>
+                        </li>
+                        <li class="search_li">
+                            <a href="javascript:;" data-value="3">时尚饮品</a>
+                        </li>
+                        <li class="search_li">
+                            <a href="javascript:;" data-value="4">鲜汤粥类</a>
+                        </li>
+                        <li class="search_li">
+                            <a href="javascript:;" data-value="5">秘制调料</a>
+                        </li>
+                    </ul>
+                    <ul id="district" class="search_ul">
+                        <li class="search_li search_active">
+                            <a href="javascript:;" data-value="0">全部地区</a>
+                        </li>
+                        <li class="search_li">
+                            <a href="javascript:;" data-value="1">美式</a>
+                        </li>
+                        <li class="search_li">
+                            <a href="javascript:;" data-value="2">日式</a>
+                        </li>
+                        <li class="search_li">
+                            <a href="javascript:;" data-value="3">英式</a>
+                        </li>
+                        <li class="search_li">
+                            <a href="javascript:;" data-value="4">意式</a>
+                        </li>
+                    </ul>
+                    <ul id="meal_time" class="search_ul">
+                    <li class="search_li search_active" >
+                        <a href="javascript:;" data-value="0">全部时段</a>
+                    </li>
+                    <li class="search_li">
+                        <a href="javascript:;" data-value="1">早餐</a>
+                    </li>
+                    <li class="search_li">
+                        <a href="javascript:;" data-value="2">午餐</a>
+                    </li>
+                    <li class="search_li">
+                        <a href="javascript:;" data-value="3">下午茶</a>
+                    </li>
+                    <li class="search_li">
+                        <a href="javascript:;" data-value="4">晚餐</a>
+                    </li>
+                </ul>
+
+                {% endif %}
+            </div>
+            {% for item in dishes %}
+            <div class="col-md-3 col-sm-3 col-xs-12 " style="padding: 0 10px">
+                <div class="service-box" >
+                    <a href="{% url 'fairyland:dishes' item.id %}">
+                    <img src="{{ item.img_sm.url }}"></a>
+                    <div class="icon">
+                        <h3 class="box-text" >{{ item.name }}</h3>
+                    </div>
+                    <p></p>
+                </div>
+            </div>
+            {% endfor %}
+    </div>
+</div>
+
+{% endblock %}
+
+
+{% block script %}
+    <script>
+     $(".filter-wrap a").click(function () {
+         var ul_id = $(this).parent("li").parent("ul").attr("id");//ul的id
+         var li_value = this.getAttribute("data-value");//li的value
+         var now_href = window.location.href;//当前的url
+         var re_msg = new RegExp("/dishes_search/(\\d{4})/");
+         var result_msg = re_msg.exec(now_href);
+         var result = result_msg[1];//0000
+         var href1 = now_href.replace(result+"/","");//取url前面部分
+         console.log(href1);
+         if (ul_id=="category"){
+             result[1] = li_value;
+             result = result[0] + li_value + result[2] + result[3];
+             console.log(1);
+         }else if (ul_id=="district"){
+             result[2] = li_value;
+             result = result[0] + result[1] + li_value + result[3];
+             console.log(2);
+         }else if (ul_id=="meal_time"){
+             result[3] = li_value;
+             result = result[0] + result[1] + result[2] + li_value;
+             console.log(3);
+         }
+         console.log(result);
+         window.location.href = href1 + result + "/";
+         //$(this).active()
+     })
+    </script>
+    <script>
+        $(window).ready(function () {
+            var now_href = window.location.href;//当前的url
+            var re_msg = new RegExp("/dishes_search/(\\d{4})/");
+            var result_msg = re_msg.exec(now_href);
+            var result = result_msg[1];//0000
+
+            $("#category").children('li').children('a')[result[1]].setAttribute("class","search_li search_li_active");
+            $("#district").children('li').children('a')[result[2]].setAttribute("class","search_li search_li_active");
+            $("#meal_time").children('li').children('a')[result[3]].setAttribute("class","search_li search_li_active");
+
+            //console.log(a1);
+        })
+    </script>
+{% endblock %}

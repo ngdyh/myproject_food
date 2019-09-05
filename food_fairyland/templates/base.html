@@ -1,0 +1,408 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}BASE{% endblock %}-美食国度</title>
+    {% block style %}{% endblock %}
+    <link href="{% static 'css/bootstrap.css' %}" rel="stylesheet">
+    <!-- 字体 -->
+    <link href="{% static 'css/fonts/font-awesome.min.css' %}" rel="stylesheet" type="text/css">
+    <!-- 导航 -->
+    <link href="{% static 'css/index/style.css' %}" rel="stylesheet">
+    <!-- 自定义 -->
+    <link href="{% static 'css/index/mycss.css' %}" rel="stylesheet">
+    <!-- 登录注册 -->
+    <link href="{% static 'css/login-registe.css' %}" rel="stylesheet" type="text/css" media="all" >
+    <!-- 特效按钮 -->
+    <link href="{% static 'css/index/button/normalize.css' %}" rel="stylesheet" type="text/css">
+    <link href="{% static 'css/index/button/main.css' %}" rel="stylesheet" type="text/css">
+    <link href='{% static 'css/index/button/family_montserrat.css' %}' rel='stylesheet' type='text/css'>
+    <!-- 新按钮 -->
+    <link href="{% static 'css/index/button/newbutton.css' %}" type="text/css" rel="stylesheet">
+    <!-- 滑动验证 -->
+    <link href="{% static 'css/index/check_bilibili/style.css' %}" type="text/css" rel="stylesheet">
+    <script src="{% static 'js/check_bilibili/jquery-1.10.2.js' %}"></script>
+    <script src="{% static 'js/check_bilibili/img_ver.js' %}"></script>
+    {% block style2 %}{% endblock %}
+
+</head>
+<body>
+<!-- 导航条 -->
+    <nav id="mainNav" class="navbar navbar-default" style="bottom: 20px;box-shadow: darkgray 0 1px 10px 2px;">
+        <div class="container-fluid">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span> Menu <i class="fa fa-bars"></i>
+                </button>
+
+                <!-- Logo Here -->
+                <img src="{% static 'img/index_head_food.png' %}" style="position: relative;left: 105%;top: 125%;height: 200%">
+                <a class="navbar-brand page-scroll" style='color: #dca7a7;position: relative;left: 209%' href="{% url 'fairyland:index' %}"><p>美食国度</p></a>
+            </div>
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav " style="position: relative;left: 52%">
+                	<li class="">
+                        <a href="{% url 'fairyland:index' %}">首页</a>
+                    </li>
+                    <li >
+                        <span class="submenu-button"></span>
+                        <a id="head_menu">菜单<span class="caret header_trimark" ></span></a>
+                        <ul id="menu" class="header_meal_ul" style="display: none">
+                            <li class="meal_li"><a href="{% url 'fairyland:dishes_search' '0' '0' '0' '0' %}">国内</a></li>
+                            <li class="meal_li"><a href="{% url 'fairyland:dishes_search' '1' '0' '0' '0' %}">国外</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#">活动</a>
+                    </li>
+                    <li>
+                        <a href="#">服务</a>
+                    </li>
+                    {% if user.is_authenticated %}
+                        <li style="top:0.9em">
+                            <img src="{% static 'img/uc/h_photo/default_38x38.jpg' %}" style="border-radius: 50%;position: relative;z-index: 4;overflow:hidden" alt="用户头像">
+                            <button class="btn btn-default dropdown-toggle" style="background: none;border: none;margin: 0.5em 0;padding: 12px 5px;color: #FFBE00" type="button" id="dropdownMenu5" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                                {{ request.user.username }}&nbsp;
+                                <span class="caret header_trimark"></span>
+                            </button>
+                            <a href="{% url 'uc:profile' %}" style="padding: 0">
+                                <img src="{% static 'img/uc/h_photo/face_frame.png' %}" style="position: absolute;top: -68px;left: -9px;z-index: 5;" alt="头像框">
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="dropdownMenu5">
+                                <li><a href="{% url 'uc:profile' %}">个人中心</a></li>
+                                <li><a href="#">我的收藏</a></li>
+                                <li><a href="#">我的评论</a></li>
+                                <li><a href="#">系统通知</a></li>
+                                <li><a href="{% url 'accounts:logout' %}">注销</a></li>
+                            </ul>
+                        </li>
+                    {% else %}
+                        <li>
+                            <a style="cursor: pointer;" data-toggle="modal" data-target="#myModal">
+                                 登陆/注册
+                            </a>
+                        </li>
+                    {% endif %}
+
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container-fluid -->
+    </nav>
+
+    {% block content %}{% endblock %}
+
+    <!-- Modal1 -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+        <div class=" modal-body" style="position: relative;">
+            <!-- login form -->
+            <div id="imgVer" style="display:none;width:20.8em;height: 6em;position:relative;left: 75px;top: 280px;z-index: 100;"></div>
+            <div class="login-form login-form-left" style="position:absolute;top: 100px">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <div class="agile-row">
+                    <h2>欢迎登录</h2>
+
+                    <div class="login-agileits-top">
+                        <form action="#" id="login_form" method="post">
+                            {% csrf_token %}
+                            <p>用户名 </p>
+                                {{ login_form.username }}
+                            <p>密码</p>
+                                {{ login_form.password }}
+                            <label class="anim">
+                                <input type="checkbox" class="checkbox">
+                                <span style="position: relative;bottom: 14px;left: 18px">记住密码 </span>
+                            </label>
+                            <a href="#">
+                            <label class="anim" style="float: right">
+                                <span>找回密码</span>
+                            </label>
+                            </a>
+                            {% if msg %}
+                                <div class="col-lg-12">
+                                    <span style="color: #ffffff">{{ msg }}</span>
+                                </div>
+                            {% endif %}
+                            <div class="col-lg-9">
+                                <button type="button" class="login_form_button" id="login_button" keyly="1">登陆</button>
+                            </div>
+                            <!-- 特效按钮 -->
+                            <div class="col-lg-3">
+                                <svg xmlns="http://www.w3.org/2000/svg" version="1.1" class="svg-filters">
+                                    <defs>
+                                        <filter id="filter-goo-1">
+                                            <feGaussianBlur in="SourceGraphic" stdDeviation="7" result="blur" />
+                                            <feColorMatrix in="blur" mode="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 19 -9" result="goo" />
+                                            <feComposite in="SourceGraphic" in2="goo" />
+                                        </filter>
+                                    </defs>
+                                </svg>
+                                <button id="component-1" type="button" class="button button--1" style="margin-top: 4em;position: relative;left: 3.4em;">
+                                    <span>注册&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;></span>
+                                    <span class="button__container">
+                                        <span class="circle top-left"></span>
+                                        <span class="circle top-left"></span>
+                                        <span class="circle top-left"></span>
+                                        <span class="button__bg"></span>
+                                        <span class="circle bottom-right"></span>
+                                        <span class="circle bottom-right"></span>
+                                        <span class="circle bottom-right"></span>
+                                    </span>
+                                </button>
+                            </div>
+                        </form>
+                        <div id="warning_msg1" class="col-lg-12" style="bottom: 8em;display: none">
+                            <div class="alert alert-warning alert-dismissible" style="margin: 0;padding:0.5em 20px 0.5em 0.5em;font-weight: bold" role="alert">
+                                <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true" style="position: relative;bottom: 0.5em;">&times;</span></button>
+                                <span id="register_msg1"></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="clear"> </div>
+        </div>
+  </div>
+</div>
+
+    <!-- Modal2 -->
+<div class="modal fade" id="myModa2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+        <div class=" modal-body" style="position: relative;">
+            <!-- register form -->
+            <div class="login-form login-form-left" style="position:absolute;top: 100px">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <div class="agile-row">
+                    <h3>欢迎注册</h3>
+					<div class="login-agileits-top">
+						<form action="{% url "accounts:register" %}" id="register_form" method="post">
+                                {% csrf_token %}
+                                <p>用户名 </p>
+                                {{ register_form.username }}
+                                <p>密码</p>
+                                {{ register_form.password }}
+                                <p>重复输入密码</p>
+                                {{ register_form.password2 }}
+                            <div class="col-lg-8">
+                                <p>邮箱验证</p>
+                                {{ register_form.email }}
+                                <a tabindex="0" class="register_email col-lg-3" role="button" data-placement="bottom" data-toggle="popover" data-trigger="focus"  data-content="">发送</a>
+                            </div>
+                            <div class="col-lg-4">
+                                <p>验证码</p>
+                                {{ register_form.email_captcha }}
+                            </div>
+                            <div class="col-lg-10">
+                                <button id="register_btn" type="button" class="register_btn" tabindex=10>注册</button>
+                            </div>
+						</form>
+                        <div class="buttons col-lg-2" style="margin-top: 4em">
+                                <button type="button" id="register_cut" class="raise" style="padding: 0.4em 0.35em;width: 6em;margin: 0;height: 2.7em;position: relative;left: 1.06em;" data-toggle="modal" data-target="#myModal">前往登陆 ></button>
+                        </div>
+                        <div id="warning_msg2" class="col-lg-12" style="bottom: 6em;display: none">
+                            <div class="alert alert-warning alert-dismissible" style="margin: 0;padding:0.5em 20px 0.5em 0.5em;font-weight: bold" role="alert">
+                                <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true" style="position: relative;bottom: 0.5em;">&times;</span></button>
+                                <span id="register_msg2"></span>
+                            </div>
+                        </div>
+					</div>
+                </div>
+            </div>
+            <div class="clear"> </div>
+        </div>
+  </div>
+</div>
+
+<!-- 登录 -->
+<script>
+    imgVer({
+        el:'$("#imgVer")',
+        width:'260',
+        height:'116',
+        img:[
+            "{% static 'img/check_bilibili/ver.png' %}",
+            "{% static 'img/check_bilibili/ver-1.png' %}",
+            "{% static 'img/check_bilibili/ver-2.png' %}",
+            "{% static 'img/check_bilibili/ver-3.png' %}",
+        ],
+        //登陆
+        success:function () {
+            //alert('执行登录函数');
+
+            //var captcha_code = $('#id_captcha').val();
+            //if (captcha_code.length == 0){
+            //    return false
+            //}
+
+            //淡出
+            setTimeout('$("#imgVer").fadeToggle(300,)', 1000);
+
+            //var keys = "1";
+            var username = $('input[id="id_username"]').val();
+            var password = $('input[id="id_password"]').val();
+            console.log(username);
+            console.log(password);
+
+            console.log($("#login_form").serialize());
+            $.ajax({
+                url: '{% url 'accounts:login' %}',
+                type: "POST",
+                dataType: 'json',
+                data: $("#login_form").serialize(),
+                success: function (data){
+                    if (data.status==200){
+                        alert('成功登陆');
+                        window.location.reload();
+                    }else{
+                        msg = data.msg;
+                        document.getElementById("register_msg1").innerHTML = msg;
+                        document.getElementById("warning_msg1").style.display = "block";
+                    }
+                },
+                error:function (data) {
+                    alert('登陆错误'+data);
+                    console.log(data);
+                },
+            });
+        },
+        error:function () {
+            //alert('滑动错误')
+        },
+    });
+    //登陆验证
+    $("#login_button").click(function () {
+
+        if($(".name").val() == '') {
+            // $(".err-username").html('用户名错误');
+            //$(".name").setAttribute(placeholder, '用户名未输入');
+        } else if($(".password").val() == '') {
+            // $(".err-password").html('密码错误');
+            //$(".password").placeholder('密码未输入');
+        } else {
+            //淡入
+            $("#imgVer").fadeToggle(500,);
+
+            //console.log($("#imgVer").css());
+        }
+    })
+</script>
+
+<!-- 注册 -->
+<script>
+    //注册验证
+    $(".register_email").click(function () {
+        var email = $('#id_email').val();
+        $.ajax({
+            url: '{% url 'accounts:email_check' %}',
+            type: "POST",
+            dataType: 'json',
+            data: {"email":email},
+            success: function (data) {
+                if (data.status==200) {
+                    alert(data.msg);
+                    hint = data.msg;
+                }
+                else if (data.status==400){
+                    hint = data.msg;
+                }
+                else{
+                    hint = data.msg;
+                }
+                $(".register_email").attr("data-content",hint);
+                console.log(hint);
+                $('[data-toggle="popover"]').popover('toggle');
+            },
+            error:function (data) {
+                    alert('验证发送错误'+data);
+                    console.log(data);
+            },
+            // 解决csrftoken
+            beforeSend: function(xhr, settings) {
+                xhr.setRequestHeader("X-CSRFToken", "{{ csrf_token }}");
+            }
+        });
+        //$('[data-toggle="popover"]').popover('toggle');
+    });
+    $(".register_email").blur(function () {
+        $('[data-toggle="popover"]').popover('destroy');
+    });
+
+    //注册
+    $("#register_btn").click(function () {
+        $.ajax({
+            url: '{% url 'accounts:register' %}',
+            type: "POST",
+            dataType: 'json',
+            data: $("#register_form").serialize(),
+            success: function (data){
+                if (data.status==200){
+                    alert('注册成功');
+                    window.location.reload();
+                    msg = data.msg;
+                }
+                else if(data.status==401 || data.status==402){
+                    msg = data.msg;
+                }
+                else{
+                    for(var i in data.msg){
+                        msg = i+data.msg[i];
+                        break
+                    }
+                }
+                console.log(msg);
+                document.getElementById("register_msg2").innerHTML = msg;
+                document.getElementById("warning_msg2").style.display = "block";
+            },
+            error:function (data) {
+                alert('注册错误'+data);
+                console.log(data);
+            },
+        });
+    })
+</script>
+
+<!-- 模态框切换 -->
+<script>
+    //登陆切注册
+    $('#component-1').click(function (){
+        setTimeout('$("#myModal").modal("toggle")',600);
+        //$('#myModal').modal('toggle');
+        setTimeout('$("#myModa2").modal("toggle")',600);
+
+    });
+</script>
+<script>
+    //注册切登陆
+    $('#register_cut').click(function (){
+        $("#myModa2").modal("toggle");
+        //$('#myModal').modal('toggle');
+    });
+</script>
+
+<script src="{% static 'js/index/jquery-3.4.1.min.js' %}" type="text/javascript" ></script>
+<script src="{% static 'js/index/bootstrap.min.js' %}" type="text/javascript"></script>
+<!-- 特效按钮 -->
+<script src="{% static 'js/star/button/TweenMax.min.js' %}"></script>
+<script src="{% static 'js/star/button/main.js' %}"></script>
+<!-- 菜单显示 -->
+<script>
+    window.onload=function(){
+        var d2 = document.getElementById("menu");
+        $("#head_menu").click(function(){
+            if (d2.style.display=="none"){
+                d2.style.display="block";
+            }else {
+                d2.style.display="none";
+            }
+        });
+    };
+</script>
+{% block script %}{% endblock %}
+
+</body>
+</html>
