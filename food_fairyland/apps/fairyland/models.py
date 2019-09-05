@@ -63,6 +63,8 @@ class Dish(models.Model):
     category = models.ForeignKey(Category, verbose_name="菜品分类")
     district = models.ForeignKey(District, verbose_name="地区菜式")
     meal = models.ManyToManyField(Meal, verbose_name="适合时间")
+    img_sm = models.ImageField(verbose_name="菜品小图", upload_to="avator/dishes_thumb/", default="avator/img_sm_404.jpg")
+    img = models.ImageField(verbose_name="菜品大图", upload_to="avator/dishes/", default="avator/img_404.jpg")
 
     class Meta:
         verbose_name = "所有菜品"

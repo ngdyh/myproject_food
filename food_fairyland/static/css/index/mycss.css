@@ -47,14 +47,14 @@
 
 /*导航菜单*/
 .meal_li{
-
+    line-height: 1.8em;
 }
 .header_meal_ul{
     display: none;
     list-style: none;
     position: absolute;
     left: 13px;
-    background-color: rgba(211,240,255,0.7);
+    background-color: rgba(231,231,231,0.7);
     padding: 5px 12px 10px;
     border-radius: 0 0 10px 10px;
     width: 60px;
@@ -135,16 +135,21 @@
     border-radius: 4px;
     margin-right: 15px;
 }
+.search_li_active{
+    background-color: #00a1d6;
+    border-radius: 4px;
+    padding: 0 8px;
+    color: #fff;
+}
 .search_contain{
     width: 980px;
     margin: 0 auto;
 }
-.search_active{
-
+.search_li:active{
     background-color: #00a1d6;
     border-radius: 4px;
 }
-.search_active a{
+.search_li a:active{
     color: #fff;
 }
 .search_li a{
@@ -161,4 +166,18 @@
     text-align: center;
     margin: 10px 0 0;
     font-size: 1em;
+}
+
+/*菜品页面*/
+.dish_img{
+    height: 375px;
+    margin: 0 0 1em;
+}
+.dish_produce{
+    padding: 0 1em;
+    opacity: 0.8;
+}
+.dish_noproduce{
+    margin: 0 15em;
+    font-size: 18px;
 }

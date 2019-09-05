@@ -9,6 +9,7 @@ class User(AbstractUser):
     mobile = models.CharField(max_length=20, verbose_name="手机号")
     intro = models.TextField(max_length=128, default="此用户太懒，暂无签名~", verbose_name="个性签名")
     qq = models.CharField(max_length=15, verbose_name="QQ号")
+    avator_sor = models.ImageField(upload_to="avator/uc/", default="avator/default.jpg", verbose_name="头像")
 
     class Meta:
         verbose_name = "用户"
