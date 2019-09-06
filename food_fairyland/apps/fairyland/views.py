@@ -28,13 +28,14 @@ class Dishes_search(View):
         login_form = LoginForm()
         try:
             if id1.isdigit and id2.isdigit and id3.isdigit and id4.isdigit:
-                if 0 <= int(id1) <= 1 and 0 <= int(id2) <= 5 and 0 <= int(id3) <= 4 and 0 <= int(id2) <= 4:
+
+                if 0 <= int(id1) <= 1 and 0 <= int(id2) <= 5 and 0 <= int(id3) <= 4 and 0 <= int(id4) <= 4:
                     country = ""
                     if id1 == "1":
                         country = "国外"
                         dishes = models.Dish.objects.all().filter(genre=2)
                         if id2 != "0":
-                            dict_category = {"1": "正餐主食", "2": "甜品小吃", "3": "时尚饮品", "4": "鲜汤粥类", 5: "秘制酱料"}
+                            dict_category = {"1": "正餐主食", "2": "甜品小吃", "3": "时尚饮品", "4": "鲜汤粥类", "5": "秘制酱料"}
                             category = models.Category.objects.filter(name=dict_category[id2])
                             dishes = dishes.filter(category=category)
                         if id3 != "0":
@@ -49,7 +50,7 @@ class Dishes_search(View):
                         country = "国内"
                         dishes = models.Dish.objects.all().filter(genre=1)
                         if id2 != "0":
-                            dict_category = {"1": "正餐主食", "2": "甜品小吃", "3": "时尚饮品", "4": "鲜汤粥类", 5: "秘制酱料"}
+                            dict_category = {"1": "正餐主食", "2": "甜品小吃", "3": "时尚饮品", "4": "鲜汤粥类", "5": "秘制酱料"}
                             category = models.Category.objects.filter(name=dict_category[id2])
                             dishes = dishes.filter(category=category)
 

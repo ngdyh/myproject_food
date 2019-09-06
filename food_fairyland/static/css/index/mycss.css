@@ -3,14 +3,22 @@
     font-size: 24px;
     color: #fbf069;
 }
+/*首页*/
 /*剧目背景*/
 .carousel_frame{
     position: relative;
     width: 100%;
     height: 750px;
-    background-color: #ebcccc;
+    background: url(../../img/index/background.jpg);
     bottom: 40px;
 }
+.img_us_index{
+    padding-left: 2em;
+}
+
+
+
+
 .register_email{
     width: 25%;
     height: 2.62em;
