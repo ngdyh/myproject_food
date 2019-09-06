@@ -1,0 +1,263 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+{% block title %}菜品{% endblock %}
+
+{% block style %}
+    <link href="{% static 'css/dishes/style.css'%}" rel="stylesheet" type="text/css" media="all" />
+    <!-- 星级 -->
+    <link media="screen" href="{% static 'css/index/star/grade.css'%}" type="text/css" rel="stylesheet" />
+
+{% endblock %}
+
+{% block style2 %}
+    <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false);
+    function hideURLbar(){ window.scrollTo(0,1); } </script>
+    <!-- //for-mobile-apps -->
+    <link href="{% static 'css/dishes/bootstrap.css'%}" rel="stylesheet" type="text/css" media="all" />
+    <script src="{% static 'js/dishes/jquery-1.11.1.min.js'%}"></script>
+    <!-- 星级 -->
+    <script src="{% static 'js/star/grade.js'%}" type="text/javascript"></script>
+
+{% endblock %}
+
+{% block content %}
+
+    <div class="container">
+        <div class="banner-body-content">
+                <div class="col-xs-3 banner-body-left">
+                    <div class="logo">
+                        <h1><a href="#">美食 <span>之国</span></a></h1>
+                    </div>
+                    <div class="top-nav">
+                        <nav class="navbar">
+                            <!-- Brand and toggle get grouped for better mobile display -->
+                            <!-- 星级 -->
+                            <div style="margin-top: 4em">
+                                <div id="myPoint">
+                                    <span><big>5</big><small>.0</small></span>
+                                </div>
+                                <div id="doPoint" style="position:relative;top:2em;width: 240px;">
+                                    <table cellspacing="0" cellpadding="0" border="0">
+                                        <tbody>
+                                            <tr>
+                                                <th>味道星级：</th>
+                                                <td><span class="star5" id="item1" v="5"><small>1</small><small>2</small><small>3</small><small>4</small><small>5</small><small>6</small><small>7</small><small>8</small><small>9</small><small>10</small></span></td>
+                                                <td><strong>5</strong> </td>
+                                            </tr>
+                                            <tr>
+                                                <th>气味星级：</th>
+                                                <td><span class="star5" id="item2" v="5"><small>1</small><small>2</small><small>3</small><small>4</small><small>5</small><small>6</small><small>7</small><small>8</small><small>9</small><small>10</small></span></td>
+                                                <td><strong>5</strong> </td>
+                                            </tr>
+                                            <tr>
+                                                <th>食材普遍度：</th>
+                                                <td><span class="star5" id="item3" v="5"><small>1</small><small>2</small><small>3</small><small>4</small><small>5</small><small>6</small><small>7</small><small>8</small><small>9</small><small>10</small></span></td>
+                                                <td><strong>5</strong> </td>
+                                            </tr>
+                                            <tr>
+                                                <th>制作难度：</th>
+                                                <td><span class="star5" id="item4" v="5"><small>1</small><small>2</small><small>3</small><small>4</small><small>5</small><small>6</small><small>7</small><small>8</small><small>9</small><small>10</small></span></td>
+                                                <td><strong>5</strong> </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                            <!-- Collect the nav links, forms, and other content for toggling -->
+
+                            <!-- /.navbar-collapse -->
+                        </nav>
+                    </div>
+                </div>
+                    <!-- 介绍图/右上 -->
+                <div class="col-xs-9 banner-body-right">
+                    <div class="wmuSlider">
+                        <div class="dish_img">
+                            <img src="{{ dish.img.url|safe }}" alt="图片不存在">
+                        </div>
+                    </div>
+                    <!-- 菜品介绍 -->
+                    <div class="banner-bottom">
+                        <div class="col-md-12 banner-left">
+                            <div class="col-xs-2 banner-left1">
+                                <div class="banner-left22">
+                                    <span></span>
+                                </div>
+                            </div>
+                            <div class="col-xs-9 banner-right1">
+                                <h3>{{ dish.name }}</h3>
+                            </div>
+                            <div class="clearfix"> </div>
+                            {{ dish.inro|safe }}
+                        </div>
+
+                        <div class="clearfix"></div>
+                    </div>
+                </div>
+                <div class="clearfix"> </div>
+                    <!-- 餐类/左下 -->
+                <div class="col-xs-3 banner-body-left">
+                    <div class="latest-news">
+                        <h2>餐类</h2>
+                        <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+                            <div class="panel panel-default">
+                                <div class="panel-heading" role="tab" id="headingOne" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-controls="collapseOne">
+                                    <h4 class="panel-title">
+                                        <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                            正餐主食
+                                        </a>
+                                    </h4>
+                                </div>
+                                <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
+                                    <div class="panel-body">
+                                        Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry.
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="panel panel-default">
+                                <div class="panel-heading" role="tab" id="headingTwo" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-controls="collapseTwo">
+                                    <h4 class="panel-title">
+                                        <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                            甜品点心
+                                        </a>
+                                    </h4>
+                                </div>
+                                <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+                                    <div class="panel-body">
+                                        Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry.
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="panel panel-default">
+                                <div class="panel-heading" role="tab" id="headingThree" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-controls="collapseThree">
+                                  <h4 class="panel-title">
+                                    <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                                      时尚饮品
+                                    </a>
+                                  </h4>
+                                </div>
+                                <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
+                                  <div class="panel-body">
+                                    Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry.
+                                  </div>
+                                </div>
+                            </div>
+                            <div class="panel panel-default">
+                                <div class="panel-heading" role="tab" id="headingFour" data-toggle="collapse" data-parent="#accordion" href="#collapseFour" aria-controls="collapseFour">
+                                  <h4 class="panel-title">
+                                    <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+                                      鲜汤、粥类
+                                    </a>
+                                  </h4>
+                                </div>
+                                <div id="collapseFour" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingFour">
+                                  <div class="panel-body">
+                                    Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry.
+                                  </div>
+                                </div>
+                            </div>
+                            <div class="panel panel-default">
+                                <div class="panel-heading" role="tab" id="headingFive" data-toggle="collapse" data-parent="#accordion" href="#collapseFive" aria-controls="collapseFive">
+                                  <h4 class="panel-title">
+                                    <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
+                                      秘制调料
+                                    </a>
+                                  </h4>
+                                </div>
+                                <div id="collapseFive" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingFive">
+                                  <div class="panel-body">
+                                    Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry.
+                                  </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="join">
+                            <a href="#">查看更多</a>
+                        </div>
+                        <h3>活动</h3>
+                        <p>活动还在准备中.敬请期待~</p>
+                    </div>
+                </div>
+                <!-- 标签加评论/右下 -->
+                <div class="col-xs-9 banner-body-right">
+                    <!-- 标签 -->
+                    <div class="msg-text">
+                        <div class="dish_produce">
+                            制作方法：
+                        {% if user.is_authenticated %}
+                                <div>
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{ dish.produce }}
+                                </div>
+                        {% else %}
+                            <div>
+                                <p class="dish_noproduce">请登录后查看</p>
+                            </div>
+                        {% endif %}
+                        </div>
+                        <div class="clearfix"> </div>
+                    </div>
+                    <!-- 评论区 -->
+                    <div class="msg-text-bottom">
+                            <div class="three-com">
+                                <h3 style="font-size: 1.5em;color: #212121;"> 2  <span></span> <label>条评论</label></h3>
+                                <div class="tom-grid">
+                                    <div class="tom">
+                                        <img src="{% static 'img/dishes_in/co.png'%}" alt=" " >
+                                    </div>
+                                    <div class="tom-right">
+                                        <div class="Hardy">
+                                            <h4><a href="#">测试人一号</a></h4>
+                                            <p><label>12 March 2016</label></p>
+                                        </div>
+                                        <div class="clearfix"> </div>
+                                        <p class="lorem">感觉很好吃</p>
+                                    </div>
+                                    <div class="clearfix"> </div>
+                                </div>
+                                <div class="tom-grid humour">
+                                    <div class="tom">
+                                        <img src="{% static 'img/dishes_in/co.png'%}" alt=" " >
+                                    </div>
+                                    <div class="tom-right">
+                                        <div class="Hardy">
+                                            <h4><a href="#">测试人二号</a></h4>
+                                            <p><label>13 March 2016</label></p>
+                                        </div>
+                                        <div class="clearfix"> </div>
+                                        <p class="lorem">真的很好吃</p>
+                                    </div>
+                                    <div class="clearfix"> </div>
+                                </div>
+                            </div>
+                        <div class="clearfix"> </div>
+                    </div>
+                </div>
+                <div class="clearfix"> </div>
+                <div class="footer">
+                    <div class="footer-left">
+                        <ul>
+                            <li><a href="#">隐私政策</a>|</li>
+                            <li><a href="#">使用条款</a>|</li>
+                            <li><a href="#">联系我们</a></li>
+                        </ul>
+                        <p>Copyright &copy; 2019.Company name All rights reserved.<a target="_blank" href="#">友情链接</a></p>
+                    </div>
+                    <div class="footer-right">
+                        <ul class="social-nav model-3">
+                            <li><a href="#" class="icon icon-border facebook"></a></li>
+                            <li><a href="#" class="icon icon-border twitter"></a></li>
+                             <li><a href="#" class="icon icon-border googleplus"></a></li>
+                             <li><a href="#" class="icon icon-border github"></a></li>
+                             <li><a href="#" class="icon icon-border rss"></a></li>
+                        </ul>
+                    </div>
+                    <div class="clearfix"> </div>
+                </div>
+		    </div>
+    </div>
+
+{% endblock %}
+
+{% block script %}
+
+{% endblock %}
